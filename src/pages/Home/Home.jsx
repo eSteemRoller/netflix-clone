@@ -6,6 +6,7 @@ import hero_banner from '../../assets/hero_banner.jpg';
 import hero_title from '../../assets/hero_title.png';
 import play_icon from '../../assets/play_icon.png';
 import info_icon from '../../assets/info_icon.png';
+import TitleCards from '../../components/TitleCards/TitleCards';
 
 
 export default function Home() { 
@@ -25,16 +26,23 @@ export default function Home() {
             an immortal enemy.
           </p>
           <div className="hero-btns">
-            <button>
-              <img src={play_icon} className='btn' alt="play button" 
+            <button className='btn'>
+              <img src={play_icon} alt="play button" 
               />Play
             </button>
-            <button>
-              <img src={info_icon} className='btn dark-btn' alt="more info button" 
+            <button className='btn dark-btn'>
+              <img src={info_icon} alt="more info button" 
               />More Info
             </button>
           </div>
+          <TitleCards />
         </div>
+      </div>
+      <div className="more-cards">
+        <TitleCards title={'Blockbuster Movies'} />
+        <TitleCards title={'Only On Netflix'} />
+        <TitleCards title={'Coming Soon'} />
+        <TitleCards title={'My List'} />
       </div>
     </div>
   )

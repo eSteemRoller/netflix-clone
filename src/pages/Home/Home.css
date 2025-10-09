@@ -52,7 +52,19 @@
   cursor: pointer;
 }
 
-.hero-btns .btn .dark-btn { 
+.hero-btns .dark-btn { 
   color: white;
   background: #6d6d6eb3;
+}
+
+.hero-btns .btn:hover { 
+  background: #ffffffbf;
+}
+
+.hero-btns .dark-btn:hover { 
+  background: #6d6d6e66;
+}
+
+.more-cards { 
+  padding-left: 8%;
 }
