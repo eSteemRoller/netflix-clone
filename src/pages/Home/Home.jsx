@@ -7,6 +7,7 @@ import hero_title from '../../assets/hero_title.png';
 import play_icon from '../../assets/play_icon.png';
 import info_icon from '../../assets/info_icon.png';
 import TitleCards from '../../components/TitleCards/TitleCards';
+import Footer from '../../components/Footer/Footer';
 
 
 export default function Home() { 
@@ -42,8 +43,9 @@ export default function Home() {
         <TitleCards title={'Blockbuster Movies'} />
         <TitleCards title={'Only On Netflix'} />
         <TitleCards title={'Coming Soon'} />
-        <TitleCards title={'My List'} />
+        <TitleCards title={'Recommended For You'} />
       </div>
+      <Footer />
     </div>
   )
 }
