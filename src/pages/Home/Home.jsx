@@ -40,10 +40,10 @@ export default function Home() {
         </div>
       </div>
       <div className="more-cards">
-        <TitleCards title={'Blockbuster Movies'} />
-        <TitleCards title={'Only On Netflix'} />
-        <TitleCards title={'Coming Soon'} />
-        <TitleCards title={'Recommended For You'} />
+        <TitleCards title={'Now Playing'} />
+        <TitleCards title={'Popular'} />
+        <TitleCards title={'Top Rated'} />
+        <TitleCards title={'Upcoming'} />
       </div>
       <Footer />
     </div>
