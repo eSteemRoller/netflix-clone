@@ -33,4 +33,6 @@
   position: absolute;
   bottom: 8px;
   right: 8px;
+  text-decoration: none;
+  color: #fff;
 }

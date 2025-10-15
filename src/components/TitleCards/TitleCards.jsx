@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './TitleCards.css';
 import cards_data from '../../assets/cards/cards_data';
+import { Link } from 'react-router-dom';
 
 
 
@@ -39,10 +40,10 @@ export default function TitleCards({title, category}) {
       <h2>{title?title:'New and Most Popular???'}</h2>
       <div className="card-list" ref={cardsRef}>
         {apiData.map((card, index) => { 
-          return <div className="card" key={index}>
+          return <Link to={`/player/${card.id}`} className="card" key={index}>
             <img src={`https://image.tmdb.org/t/p/w500`+card.backdrop_path} alt="movie poster image" />
             <p>{card.original_title}</p>
-          </div>
+          </Link>
         } )}
       </div>
     </div>
