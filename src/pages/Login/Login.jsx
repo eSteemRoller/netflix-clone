@@ -2,12 +2,25 @@
 import React, { useState } from 'react';
 import './Login.css';
 import logo from '../../assets/logo.png';
-
+import { LogIn, SignUp } from '../../firebase';
 
 
 export default function Login() { 
 
   const [signInOrUpState, setSignInOrUpState] = useState("Sign In")
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function auth_user(event) {
+    event.preventDefault();
+    if (signInOrUpState==="Sign In") { 
+      await Login(email, password);
+    } else { 
+      await SignUp(firstName, lastName, email, password);
+    }
+  }
 
   return (
     <div className='login'>
@@ -18,16 +31,16 @@ export default function Login() {
           {signInOrUpState==="Sign Up" 
             ? (
               <>
-              <input type="text" placeholder='First name'/>
-              <input type="text" placeholder='Last name'/>
+              <input value={firstName} onChange={(e) => {setFirstName(e.target.value)}} type="text" placeholder='First name'/>
+              <input value={lastName} onChange={(e) => {setLastName(e.target.value)}} type="text" placeholder='Last name'/>
               </>
             )
             : 
               <></>
           }
-          <input type="email" placeholder='E-mail'/>
-          <input type="password" placeholder='Password'/>
-          <button>{signInOrUpState}</button>
+          <input value={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder='E-mail'/>
+          <input value={password} onChange={(e) => {setPassword(e.target.value)}} type="password" placeholder='Password'/>
+          <button onClick={auth_user} type='submit'>{signInOrUpState}</button>
           <div className="form-help">
             {signInOrUpState==="Sign In" 
               ?
