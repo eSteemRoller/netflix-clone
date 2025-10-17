@@ -60,7 +60,7 @@ export default function Login() {
         </form>
         <div className="form-switch">
           {signInOrUpState==="Sign In" 
-          ? <p>New to Netflix? <span onClick={() => {setSignInOrUpState("Sign Up")}}>Sign Up</span></p>
+          ? <p>New to Netflix? <span onClick={() => {setSignInOrUpState("Sign Up")}}>Sign Up Now!</span></p>
           : <p>Already signed up? <span onClick={() => {setSignInOrUpState("Sign In")}}>Sign In</span></p>
           }
         </div>

@@ -26,7 +26,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-export default async function SignUp(firstName, lastName, email, password) {
+export async function SignUp(firstName, lastName, email, password) {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
@@ -43,7 +43,7 @@ export default async function SignUp(firstName, lastName, email, password) {
   }
 }
 
-export default async function LogIn(email, password) {
+export async function LogIn(email, password) {
   try {
     signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
@@ -52,7 +52,7 @@ export default async function LogIn(email, password) {
   }
 }
 
-export default async function LogOut(auth) {
+export async function LogOut(auth) {
   try {
     signOut(auth);
   } catch (error) {
