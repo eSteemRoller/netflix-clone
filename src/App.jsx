@@ -29,6 +29,8 @@ import Login from './pages/Login/Login';
 import Player from './pages/Player/Player';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 export default function App() { 
 
@@ -38,16 +40,17 @@ export default function App() {
     onAuthStateChanged(auth, async (user) => { 
       if (user) { 
         console.log("Logged In");
-        nav('/');
+        // nav('/');
       } else { 
         console.log("Logged Out");
-        nav('/login');
+        // nav('/login');
       }
     })
   },[])
 
   return (
     <div>
+      <ToastContainer theme='dark' />
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/login' element={<Login/>} />

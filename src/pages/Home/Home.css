@@ -68,3 +68,57 @@
 .more-cards { 
   padding-left: 8%;
 }
+
+@media (max-width: 1024px) {
+  .hero-caption .title-cards { 
+    display: none;
+  }
+
+  .hero-btns { 
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 800px) { 
+  .hero-caption { 
+    padding-left: 4%;
+  }
+
+  .caption-img { 
+    margin-bottom: 8px;
+    width: 40%;
+  }
+
+  .hero-caption p { 
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .hero-btns .btn img { 
+    width: 20px;
+  }
+
+  .more-cards { 
+    padding-left: 4%;
+  }
+}
+
+@media (max-width: 540px) { 
+  .caption-img { 
+    display: none;
+  }
+
+  .hero-btns .btn img { 
+    width: 16px;
+  }
+
+  .btn { 
+    padding: 4px 8px;
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .more-cards { 
+    padding-left: 4%;
+  }
+}

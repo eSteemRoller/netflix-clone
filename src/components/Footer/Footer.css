@@ -28,3 +28,15 @@
   color: gray;
   font-size: 12px;
 }
+
+@media (max-width: 800px) {
+  .footer-icons img { 
+    width: 24px;
+  }
+
+  .footer ul { 
+    grid-template: auto auto;
+    gap: 8px;
+    font-size: 14px;
+  }
+}

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import './Login.css';
 import logo from '../../assets/logo.png';
 import { LogIn, SignUp } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
+import netflix_spinner from '../../assets/netflix_spinner.gif';
 
 
 export default function Login() { 
@@ -13,18 +15,27 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
+  const nav = useNavigate();
+
   async function auth_user(event) {
     event.preventDefault();
+    setLoading(true);
     if (signInOrUpState==="Sign In") { 
       await Login(email, password);
     } else { 
       await SignUp(firstName, lastName, email, password);
     }
+    setLoading(false);
   }
 
   return (
+    loading ? <div className="login-spinner">
+      <img src={netflix_spinner} alt="netflix loading spinner" />
+    </div> :
     <div className='login'>
-      <img src={logo} className='login-logo' alt="login page logo" />
+      <img src={logo} onClick={() => {nav('/')}} className='login-logo' alt="login page logo" />
       <div className="login-form">
         <h1>{signInOrUpState}</h1>
         <form>
