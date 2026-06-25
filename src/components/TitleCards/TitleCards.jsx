@@ -1,13 +1,10 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import './TitleCards.css';
 import cards_data from '../../assets/cards/cards_data';
 import { Link } from 'react-router-dom';
 
 
-
 export default function TitleCards({title, category}) { 
-
   const [apiData, setApiData] = useState([]);
   const cardsRef = useRef();
 
@@ -18,7 +15,6 @@ export default function TitleCards({title, category}) {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTE0MmExZmQzZjNlNGZmOWI0OGIzNmNkNzQwYzdjYyIsIm5iZiI6MTc2MDMzMTM5My40OTcsInN1YiI6IjY4ZWM4NjgxZWI4YjIwNzRjMGYxMTk5NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-WQrlqznYUmxqytqsYvqdR3gMEy0kFrP9WG4Ayl7Lrg'
     }
   };
-
 
   const handleWheel = (event) => { 
     event.preventDefault();
@@ -37,7 +33,7 @@ export default function TitleCards({title, category}) {
 
   return (
     <div className='title-cards'>
-      <h2>{title?title:'New and Most Popular???'}</h2>
+      <h2>{title?title:'Newest and Most Popular'}</h2>
       <div className="card-list" ref={cardsRef}>
         {apiData.map((card, index) => { 
           return <Link to={`/player/${card.id}`} className="card" key={index}>

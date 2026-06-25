@@ -1,4 +1,3 @@
-
 import { initializeApp } from "firebase/app";
 import { 
   createUserWithEmailAndPassword, 
@@ -13,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyAne9NWIUkr69TJw8x_O_sRqnGODus_OW8",
   authDomain: "netflix-clone-63349.firebaseapp.com",
@@ -22,10 +22,10 @@ const firebaseConfig = {
   appId: "1:66373474205:web:54c95640ba1afa9a3b8174"
 };
 
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
 
 export async function SignUp(firstName, lastName, email, password) {
   try {
@@ -46,14 +46,14 @@ export async function SignUp(firstName, lastName, email, password) {
 
 export async function LogIn(email, password) {
   try {
-    signInWithEmailAndPassword(auth, email, password);
+    await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.log(error);
     toast.error(error.code.split('/')[1].split('-').join(" "));
   }
 }
 
-export async function LogOut(auth) {
+export async function LogOut() {
   try {
     signOut(auth);
   } catch (error) {

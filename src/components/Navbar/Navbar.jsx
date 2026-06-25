@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import './Navbar.css';
 import logo from '../../assets/logo.png';
@@ -22,10 +21,13 @@ export default function Navbar() {
     })
   },[])
 
+
   return (
     <div ref={navRef} className='navbar'>
-      <div className="navbar-left">
+      <div className='navbar-left'>
         <img src={logo} alt="Netflix logo" />
+      </div>
+      <div className='navbar-center'>
         <ul>
           <li>Home</li>
           <li>TV Shows</li>
@@ -35,15 +37,15 @@ export default function Navbar() {
           <li>Browse by Language</li>
         </ul>
       </div>
-      <div className="navbar-right">
+      <div className='navbar-right'>
         <img src={search_icon} className='icon' alt="search icon" />
         <p>Children</p>
         <img src={bell_icon} className='icon' alt="bell icon" />
-        <div className="navbar-profile">
+        <div className='navbar-profile'>
           <img src={profile_img} className='profile' alt="profile image" />
           <img src={caret_icon} className='caret' alt="caret icon" />
-          <div className="dropdown">
-            <p onClick={() => {LogOut()}}>Log Out</p>
+          <div className='dropdown'>
+            <p onClick={() => {LogOut()}}>Sign Out</p>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 .hero { 
   position: relative;
 }
@@ -69,7 +68,7 @@
   padding-left: 8%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .hero-caption .title-cards { 
     display: none;
   }
@@ -103,7 +102,7 @@
   }
 }
 
-@media (max-width: 540px) { 
+@media (max-width: 560px) { 
   .caption-img { 
     display: none;
   }

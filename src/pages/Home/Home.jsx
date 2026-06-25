@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './Home.css';
 import Navbar from '../../components/Navbar/Navbar';
@@ -11,14 +10,12 @@ import Footer from '../../components/Footer/Footer';
 
 
 export default function Home() { 
-
-
   return (
     <div className='home'>
       <Navbar/>
-      <div className="hero">
+      <div className='hero'>
         <img src={hero_banner} className='banner-img' alt="hero banner" />
-        <div className="hero-caption">
+        <div className='hero-caption'>
           <img src={hero_title} className='caption-img' alt="hero title" />
           <p>
             Discovering his ties to a secret ancient order, 
@@ -26,7 +23,7 @@ export default function Home() {
             on a quest to save the city from 
             an immortal enemy.
           </p>
-          <div className="hero-btns">
+          <div className='hero-btns'>
             <button className='btn'>
               <img src={play_icon} alt="play button" 
               />Play
@@ -40,10 +37,10 @@ export default function Home() {
         </div>
       </div>
       <div className="more-cards">
-        <TitleCards title={'Now Playing'} category={"now_playing"} />
-        <TitleCards title={'Popular'} category={"popular"} />
-        <TitleCards title={'Top Rated'} category={"top_rated"} />
-        <TitleCards title={'Upcoming'} category={"upcoming"} />
+        <TitleCards title={"Now Playing"} category={'now_playing'} />
+        <TitleCards title={"Popular"} category={'popular'} />
+        <TitleCards title={"Top Rated"} category={'top_rated'} />
+        <TitleCards title={"Upcoming"} category={'upcoming'} />
       </div>
       <Footer />
     </div>
