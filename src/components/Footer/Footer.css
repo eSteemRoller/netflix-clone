@@ -6,6 +6,7 @@
 
 .footer-icons { 
   display: flex;
+  justify-content: center;
   gap: 24px;
   margin: 40px 0;
 }
@@ -23,7 +24,9 @@
   list-style: none;
 }
 
-.copyright-text { 
+.copyright-text {
+  display: flex;
+  justify-content: center;
   color: gray;
   font-size: 12px;
 }

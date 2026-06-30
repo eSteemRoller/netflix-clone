@@ -80,7 +80,7 @@ export default function Login() {
         </form>
         <div className='form-switch'>
           {signState==='Sign In' 
-          ? <p>New to Netflix?? <span onClick={() => {setSignState('Sign Up')}}>Sign Up Now!</span></p>
+          ? <p>New to Netflix+? <span onClick={() => {setSignState('Sign Up')}}>Sign Up Now!</span></p>
           : <p>Already signed up? <span onClick={() => {setSignState('Sign In')}}>Sign In</span></p>
           }
         </div>
