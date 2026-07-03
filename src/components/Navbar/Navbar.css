@@ -94,6 +94,105 @@
   background: #141414;
 }
 
+/* ── Hamburger & mobile menu (hidden above 540px) ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 2;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animate into an X when open */
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  order: 2;
+  flex-basis: 100%;
+  background-color: rgba(20, 20, 20, 0.97);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 16px 0 8px;
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 4px 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 8px;
+}
+
+.mobile-menu-icons .icon {
+  width: 22px;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.mobile-menu-icons .icon:hover {
+  filter: brightness(0) saturate(100%) invert(13%) sepia(97%) saturate(7471%) hue-rotate(357deg) brightness(95%) contrast(117%)
+          drop-shadow(0 0 6px rgba(229, 9, 20, 0.7));
+}
+
+.mobile-menu-icons .profile {
+  width: 32px;
+  border-radius: 4px;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobile-menu ul li {
+  padding: 10px 4px 10px 16px;
+  font-size: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: color 0.2s;
+}
+
+.mobile-menu ul li:last-child {
+  border-bottom: none;
+  color: #aaa;
+}
+
+.mobile-menu ul li:hover {
+  color: #e50914;
+}
+
 
 @media (max-width: 1200px) {
   .navbar {
@@ -112,18 +211,25 @@
   .navbar { 
     padding: 24px;
   }
-
-  /* .navbar img { 
-    height: 32px;
-  } */
 }
 
 @media (max-width: 540px) {
-  .navbar img { 
-    height: 20px;
+  /* Hide the regular right-side icons and center nav */
+  .navbar-right {
+    display: none;
   }
 
-  .navbar-right { 
-    gap: 8px;
+  .navbar-center {
+    display: none;
+  }
+
+  /* Show the hamburger button */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Show the mobile menu panel */
+  .mobile-menu {
+    display: block;
   }
 }

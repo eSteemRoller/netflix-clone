@@ -130,10 +130,6 @@
     display: none;
   }
 
-  .navbar img {
-    height: 24px;
-  }
-
   .navbar-right {
     gap: 8px;
   }

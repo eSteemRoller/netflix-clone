@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Navbar.css';
 import logo from '../../assets/logo.png';
 import search_icon from '../../assets/search_icon.svg';
@@ -10,6 +10,7 @@ import { LogOut } from '../../firebase';
 
 export default function Navbar() { 
   const navRef = useRef();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => { 
     window.addEventListener('scroll', () => { 
@@ -32,7 +33,7 @@ export default function Navbar() {
           <li>Home</li>
           <li>TV Shows</li>
           <li>Movies</li>
-          <li>New & Popular</li>
+          <li>New &amp; Popular</li>
           <li>My List</li>
           <li>Browse by Language</li>
         </ul>
@@ -49,6 +50,38 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Hamburger button — only visible at ≤540px */}
+      <button
+        className={`hamburger${menuOpen ? ' is-open' : ''}`}
+        onClick={() => setMenuOpen(prev => !prev)}
+        aria-label="Toggle menu"
+        aria-expanded={menuOpen}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      {/* Mobile slide-down menu */}
+      {menuOpen && (
+        <div className='mobile-menu'>
+          <div className='mobile-menu-icons'>
+            <img src={search_icon} className='icon' alt="search icon" />
+            <img src={bell_icon} className='icon' alt="bell icon" />
+            <img src={profile_img} className='profile' alt="profile image" />
+          </div>
+          <ul>
+            <li onClick={() => setMenuOpen(false)}>Home</li>
+            <li onClick={() => setMenuOpen(false)}>TV Shows</li>
+            <li onClick={() => setMenuOpen(false)}>Movies</li>
+            <li onClick={() => setMenuOpen(false)}>New &amp; Popular</li>
+            <li onClick={() => setMenuOpen(false)}>My List</li>
+            <li onClick={() => setMenuOpen(false)}>Browse by Language</li>
+            <li onClick={() => { LogOut(); }}>Sign Out</li>
+          </ul>
+        </div>
+      )}
     </div>
   )
 }
