@@ -5,12 +5,16 @@ import search_icon from '../../assets/search_icon.svg';
 import bell_icon from '../../assets/bell_icon.svg';
 import profile_img from '../../assets/profile_img.png';
 import caret_icon from '../../assets/caret_icon.svg';
-import { LogOut } from '../../firebase';
+import { LogOut, auth } from '../../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Navbar() { 
   const navRef = useRef();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => { 
     window.addEventListener('scroll', () => { 
@@ -21,6 +25,13 @@ export default function Navbar() {
       }
     })
   },[])
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
 
 
   return (
@@ -42,13 +53,17 @@ export default function Navbar() {
         <img src={search_icon} className='icon' alt="search icon" />
         <p>Children</p>
         <img src={bell_icon} className='icon' alt="bell icon" />
-        <div className='navbar-profile'>
-          <img src={profile_img} className='profile' alt="profile image" />
-          <img src={caret_icon} className='caret' alt="caret icon" />
-          <div className='dropdown'>
-            <p onClick={() => {LogOut()}}>Sign Out</p>
+        {user ? (
+          <div className='navbar-profile'>
+            <img src={profile_img} className='profile' alt="profile image" />
+            <img src={caret_icon} className='caret' alt="caret icon" />
+            <div className='dropdown'>
+              <p onClick={() => LogOut()}>Sign Out</p>
+            </div>
           </div>
-        </div>
+        ) : (
+          <button className='signin-btn' onClick={() => navigate('/login')}>Sign In</button>
+        )}
       </div>
 
       {/* Hamburger button — only visible at ≤540px */}
@@ -69,7 +84,7 @@ export default function Navbar() {
           <div className='mobile-menu-icons'>
             <img src={search_icon} className='icon' alt="search icon" />
             <img src={bell_icon} className='icon' alt="bell icon" />
-            <img src={profile_img} className='profile' alt="profile image" />
+            {user && <img src={profile_img} className='profile' alt="profile image" />}
           </div>
           <ul>
             <li onClick={() => setMenuOpen(false)}>Home</li>
@@ -78,7 +93,10 @@ export default function Navbar() {
             <li onClick={() => setMenuOpen(false)}>New &amp; Popular</li>
             <li onClick={() => setMenuOpen(false)}>My List</li>
             <li onClick={() => setMenuOpen(false)}>Browse by Language</li>
-            <li onClick={() => { LogOut(); }}>Sign Out</li>
+            {user
+              ? <li onClick={() => { LogOut(); setMenuOpen(false); }}>Sign Out</li>
+              : <li onClick={() => { navigate('/login'); setMenuOpen(false); }}>Sign In</li>
+            }
           </ul>
         </div>
       )}

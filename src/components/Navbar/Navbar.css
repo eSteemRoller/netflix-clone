@@ -94,6 +94,25 @@
   background: #141414;
 }
 
+.signin-btn {
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 17px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.3px;
+}
+
+.signin-btn:hover {
+  background-color: #f40612;
+  transform: scale(1.04);
+}
+
+
 /* ── Hamburger & mobile menu (hidden above 540px) ── */
 .hamburger {
   display: none;
