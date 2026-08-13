@@ -2,18 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import './TitleCards.css';
 import { Link } from 'react-router-dom';
 
-
-export default function TitleCards({title, category}) { 
-  const [apiData, setApiData] = useState([]);
-  const cardsRef = useRef();
-
-  const options = {
+const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTE0MmExZmQzZjNlNGZmOWI0OGIzNmNkNzQwYzdjYyIsIm5iZiI6MTc2MDMzMTM5My40OTcsInN1YiI6IjY4ZWM4NjgxZWI4YjIwNzRjMGYxMTk5NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-WQrlqznYUmxqytqsYvqdR3gMEy0kFrP9WG4Ayl7Lrg'
     }
-  };
+};
+
+export default function TitleCards({title, category}) { 
+  const [apiData, setApiData] = useState([]);
+  const cardsRef = useRef();
 
   const handleWheel = (event) => { 
     event.preventDefault();
@@ -27,7 +26,7 @@ export default function TitleCards({title, category}) {
     .catch(err => console.error(err));
 
     cardsRef.current.addEventListener('wheel', handleWheel)
-  },[])
+  },[category])
 
 
   return (
