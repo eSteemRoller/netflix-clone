@@ -24,7 +24,7 @@ const cards_data = [
     },
     {
         image:card_img3,
-        name:"Squid Challange"
+        name:"Squid Challenge"
     },
     {
         image:card_img4,
