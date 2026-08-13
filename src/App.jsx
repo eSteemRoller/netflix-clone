@@ -21,8 +21,7 @@ export default function App() {
         nav('/login');
       }
     })
-  }, [])
-
+  }, [nav])
 
   return (
     <div>
