@@ -32,7 +32,6 @@ export default function Footer() {
         <li>Corporate Information</li>
         <li>Contact Us</li>
         <li>Contact Us</li>
-        <li>Contact Us</li>
       </ul>
       <p className='copyright-text'>&copy;&nbsp;{currentYear} Netflix+, Inc.</p>
     </div>
